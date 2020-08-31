@@ -1,0 +1,14 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "group": "build",
+            "type":"npm",
+            "script": "start",
+            "path": "/",
+            "problemMatcher": [],
+            "label": "ReactStart",
+            "detail": "Start the react server."
+        }
+    ]
+}

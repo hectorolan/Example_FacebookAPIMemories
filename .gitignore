@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+datarefresh/sslcert/server.cert
+datarefresh/sslcert/server.key

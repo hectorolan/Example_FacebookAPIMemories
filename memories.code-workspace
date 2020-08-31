@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"path": "datarefresh"
+		},
+		{
+			"path": "clientapp"
+		},
+		{
+			"path": "scripts"
+		}
+	],
+	"settings": {},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [],
+		"compounds": [
+			{
+				"name": "Memories App",
+				"configurations": ["Expressjs","ReactChrome"]
+			}
+		]
+	}
+}

@@ -1,0 +1,91 @@
+==== Query
+  curl -i -X GET \
+   "https://graph.facebook.com/v8.0/me/photos?fields=album%2Cimages%2Cname%2Calt_text%2Clink&access_token=<access token sanitized>"
+==== Access Token Info
+  {
+    "perms": [
+      "user_photos",
+      "email",
+      "public_profile"
+    ],
+    "user_id": "10163913563",
+    "app_id": 95297196
+  }
+==== Parameters
+- Query Parameters
+
+
+  {
+    "fields": "album,images,name,alt_text,link"
+  }
+- POST Parameters
+
+
+  {}
+==== Response
+  {
+    "data": [
+      {
+        "album": {
+          "created_time": "2010-10-16T17:20:23+0000",
+          "name": "Mobile Uploads",
+          "id": "10150286467925263"
+        },
+        "images": [
+          {
+            "height": 1440,
+            "source": "https://scontent.fsig3-1.fna.fbcdn.net/v/t1.0-9/96267655_10163396431065263_5967483099284504576_o.jpg?_nc_cat=107&_nc_sid=110474&_nc_ohc=R5OeVKl7RcIAX_Gg8cX&_nc_ht=scontent.fsig3-1.fna&oh=49e0089b33981cdfe882e218b8377504&oe=5F68D3E3",
+            "width": 1072
+          },
+          {
+            "height": 1290,
+            "source": "https://scontent.fsig3-1.fna.fbcdn.net/v/t1.0-9/p960x960/96267655_10163396431065263_5967483099284504576_o.jpg?_nc_cat=107&_nc_sid=110474&_nc_ohc=R5OeVKl7RcIAX_Gg8cX&_nc_ht=scontent.fsig3-1.fna&_nc_tp=6&oh=a3a5382a48f8740338ae06c37b621c04&oe=5F68089C",
+            "width": 960
+          },
+          {
+            "height": 967,
+            "source": "https://scontent.fsig3-1.fna.fbcdn.net/v/t1.0-9/p720x720/96267655_10163396431065263_5967483099284504576_o.jpg?_nc_cat=107&_nc_sid=110474&_nc_ohc=R5OeVKl7RcIAX_Gg8cX&_nc_ht=scontent.fsig3-1.fna&_nc_tp=6&oh=6b5cffb7238e4e70a0056d9c25ecb465&oe=5F6666C9",
+            "width": 720
+          },
+          {
+            "height": 806,
+            "source": "https://scontent.fsig3-1.fna.fbcdn.net/v/t1.0-0/p600x600/96267655_10163396431065263_5967483099284504576_o.jpg?_nc_cat=107&_nc_sid=110474&_nc_ohc=R5OeVKl7RcIAX_Gg8cX&_nc_ht=scontent.fsig3-1.fna&_nc_tp=6&oh=cca0b87b86c8509515a3bce827d1ce8d&oe=5F67712E",
+            "width": 600
+          },
+          {
+            "height": 645,
+            "source": "https://scontent.fsig3-1.fna.fbcdn.net/v/t1.0-0/p480x480/96267655_10163396431065263_5967483099284504576_o.jpg?_nc_cat=107&_nc_sid=110474&_nc_ohc=R5OeVKl7RcIAX_Gg8cX&_nc_ht=scontent.fsig3-1.fna&_nc_tp=6&oh=48453ed7dfa3e1402aea6bc0375cb0f5&oe=5F654198",
+            "width": 480
+          },
+          {
+            "height": 430,
+            "source": "https://scontent.fsig3-1.fna.fbcdn.net/v/t1.0-0/p320x320/96267655_10163396431065263_5967483099284504576_o.jpg?_nc_cat=107&_nc_sid=110474&_nc_ohc=R5OeVKl7RcIAX_Gg8cX&_nc_ht=scontent.fsig3-1.fna&_nc_tp=6&oh=67766855a174268f3814b1967ecc9b49&oe=5F684056",
+            "width": 320
+          },
+          {
+            "height": 540,
+            "source": "https://scontent.fsig3-1.fna.fbcdn.net/v/t1.0-0/p180x540/96267655_10163396431065263_5967483099284504576_o.jpg?_nc_cat=107&_nc_sid=110474&_nc_ohc=R5OeVKl7RcIAX_Gg8cX&_nc_ht=scontent.fsig3-1.fna&_nc_tp=6&oh=1b20692c562eeaef79684628a8957d1a&oe=5F68F8F1",
+            "width": 402
+          },
+          {
+            "height": 175,
+            "source": "https://scontent.fsig3-1.fna.fbcdn.net/v/t1.0-0/p130x130/96267655_10163396431065263_5967483099284504576_o.jpg?_nc_cat=107&_nc_sid=110474&_nc_ohc=R5OeVKl7RcIAX_Gg8cX&_nc_ht=scontent.fsig3-1.fna&_nc_tp=6&oh=bf1fa0a5030786648dc3e5cb630376a9&oe=5F691CC6",
+            "width": 130
+          },
+          {
+            "height": 225,
+            "source": "https://scontent.fsig3-1.fna.fbcdn.net/v/t1.0-0/p75x225/96267655_10163396431065263_5967483099284504576_o.jpg?_nc_cat=107&_nc_sid=110474&_nc_ohc=R5OeVKl7RcIAX_Gg8cX&_nc_ht=scontent.fsig3-1.fna&_nc_tp=6&oh=a613fe00d7a2aea8fa08200f86f2eb8d&oe=5F68A074",
+            "width": 168
+          }
+        ],
+        "name": "Aqui teniendo una fiesta doble con mi madre. 🤗🥰 Feliz dia!",
+        "alt_text": "No photo description available.",
+        "link": "https://www.facebook.com/photo.php?fbid=10163396431060263&set=a.10150286467925263&type=3",
+        "id": "10163396431060263"
+      }
+    ],
+    "paging": "--sanitized--",
+    "__debug__": {}
+  }
+==== Debug Information from Graph API Explorer
+- https://developers.facebook.com/tools/explorer?method=GET&path=me%2Fphotos%3Ffields%3Dalbum%2Cimages%2Cname%2Calt_text%2Clink&version=v8.0

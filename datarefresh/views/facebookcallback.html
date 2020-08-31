@@ -1,0 +1,41 @@
+<script>
+    function getQueryStringValue(key, uri) {
+        return decodeURIComponent(uri.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+    }
+
+    // We are asuming it is a positive results. 
+    // But here-on client side we need to transfer the
+    // access token information or validate user log in.
+    let uri = window.location.href.replace('#','');
+
+    let accesstoken = getQueryStringValue('access_token', uri);
+    let expiredatetime = new Date();
+    expiredatetime.setSeconds( expiredatetime.getSeconds() + getQueryStringValue('expires_in', uri) );
+    let state = getQueryStringValue('state', uri);
+
+    // Get user main information from facebook
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", "https://graph.facebook.com/v8.0/me?fields=id,email,name&access_token=" + accesstoken, false); // false for synchronous request
+    xmlHttp.send(null);
+    if (xmlHttp.responseText && xmlHttp.responseText != "") {
+        var me = JSON.parse(xmlHttp.responseText);
+        var body = {
+            'accesstoken': accesstoken,
+            'expiredatetime': expiredatetime,
+            'state': state,
+            'email':me.email,
+            'username':me.name,
+            'facebookuserid':me.id
+        }
+
+        // Save to DB and continue
+        xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("POST", `/facebooklogin/save`, false); // false for synchronous request
+        xmlHttp.setRequestHeader("Content-Type", "application/json");
+        xmlHttp.send(JSON.stringify(body));
+        if (xmlHttp.responseText == "OK") {
+            window.location.href = "https://localhost:3000/yeys";
+        }
+    }
+</script>
+Loading...
