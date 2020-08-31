@@ -1,3 +1,5 @@
+
+Example:
 ==== Query
   curl -i -X GET \
    "https://graph.facebook.com/v8.0/me/photos?fields=album%2Cimages%2Cname%2Calt_text%2Clink&access_token=<access token sanitized>"
