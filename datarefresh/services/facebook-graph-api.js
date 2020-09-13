@@ -6,16 +6,14 @@ function FacebookGraphApi() {
 };
 
 // Methods
-function getPhotos(facebookUserId, accessToken) {
-  let photos = new Array();
+function getPhotos(facebookUserId, accessToken, callback) {
   let url = `https://graph.facebook.com/v8.0/${facebookUserId}/photos?fields=id,album,alt_text,created_time,images,link,name&access_token=${accessToken}`;
-  loadPage(photos, url);
-  return photos;
+  loadPage(url, callback);
 }
 //-------------------------------------------------------------//
 // This methos will go page by page and collecting all the photos 
 // information, it will load the photos object passed by ref.
-function loadPage(photos, uri){
+function loadPage(uri, callback){
   let url = new URL(uri);
   let options = {
     host: url.host,
@@ -36,7 +34,9 @@ function loadPage(photos, uri){
   
     res.on('end', function () {
       console.log('resource' + resource);
+      let photos = new Array();
       collectPhotos(photos, JSON.parse(resource));
+      callback(photos);
     });
   }).on('error', (e) => {
     console.error(e);

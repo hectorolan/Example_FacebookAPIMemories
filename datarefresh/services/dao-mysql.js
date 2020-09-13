@@ -22,20 +22,26 @@ function updateFacebook (accesstoken, expiredatetime, facebookid, name, email) {
 function savePhoto(photo){
   // expiredatetime needs to be in mysql-datetime
   let sql = `CALL add_image_main(
-  "${photo.height}",
-  "${photo.width}",
-  "${photo.sourceurl}",
-  "${photo.externalimageid}",
-  "${(new Date(photo.photodate)).toISOString().slice(0, 19).replace('T', ' ')}",
-  "${photo.externalphotoid}",
-  "${photo.photoexternallink}",
-  "${photo.photoname}",
-  "${photo.photoaltname}",
-  "${(new Date(photo.albumdate)).toISOString().slice(0, 19).replace('T', ' ')}",
-  "${photo.albumname}",
-  "${photo.albumtext}",
-  "${photo.externalalbumid}",
-  "${photo.userid}")`;
+  ${photo.height ? photo.height : 0  },
+  ${photo.width ? photo.width : 0},
+  ${photo.sourceurl ? '"' + photo.sourceurl + '"' : null},
+  ${photo.externalimageid ? '"' + photo.externalimageid + '"' : null},
+  ${photo.photodate ? '"' + (new Date(photo.photodate)).toISOString().slice(0, 19).replace('T', ' ') + '"' : null},
+  ${photo.externalphotoid ? '"' + photo.externalphotoid + '"'  : null},
+  ${photo.photoexternallink ? '"' + photo.photoexternallink + '"' : null},
+  ${photo.photoname ? '"' + photo.photoname + '"' : null},
+  ${photo.photoaltname ? '"' + photo.photoaltname + '"' : null},
+  ${photo.albumdate ? '"' + (new Date(photo.albumdate)).toISOString().slice(0, 19).replace('T', ' ') + '"' : null},
+  ${photo.albumname ? '"' + photo.albumname + '"' : null},
+  ${photo.albumtext ? '"' + photo.albumtext + '"' : null},
+  ${photo.externalalbumid ? '"' + photo.externalalbumid + '"' : null},
+  ${photo.userid})`;
+
+  sql = sql.replace(/(\r\n|\n|\r)/gm, "");
+
+  if(photo.externalphotoid == '421602290262'){
+    let c = 0;
+  }
 
   this.connection.query(sql, true, (error, results, fields) => {
     if (error) {
